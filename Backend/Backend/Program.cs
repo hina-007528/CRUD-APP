@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen();
 
 string connectionString = builder.Configuration.GetConnectionString("Default") ?? throw new ArgumentNullException("connectionString is null");
 
-builder.Services.AddDbContext<AppDbContext>(op => op.UseSqlServer(connectionString));
+builder.Services.AddDbContext<AppDbContext>(op => op.UseNpgsql(connectionString));
 
 var app = builder.Build();
 
